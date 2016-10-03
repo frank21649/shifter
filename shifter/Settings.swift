@@ -25,5 +25,9 @@ class Settings: UITableViewController {
         cell.textLabel?.text = settingsArray[indexPath.row]
         return cell
     }
+    
+    override func viewDidLoad() {
+        self.title = "設定"
+    }
 
 }

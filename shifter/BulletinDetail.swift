@@ -8,35 +8,58 @@
 
 import UIKit
 
+
 class BulletinDetail: UITableViewController {
+    let subjectArray = ["標題：","時間：","內容"]
+    var selectedSection = Int()
+    var selectedRow = Int()
+    var titleArray1 = [String]()
+    var titleArray2 = [String]()
+    var timeArray1 = [String]()
+    var timeArray2 = [String]()
+    var contentArray1 = [String]()
+    var contentArray2 = [String]()
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
+    //set tableView
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("bulletinDetailCell")! as UITableViewCell
+        let subjectLabel = UILabel(frame: CGRectMake(20,10,51,21))
         
+        //set subject and content labels
+        cell.addSubview(subjectLabel)
+        subjectLabel.text = subjectArray[indexPath.row]
+        let valueLabel = UILabel(frame: CGRectMake(60,10,400,21))
+        cell.addSubview(valueLabel)
+
         if indexPath.row == 0 {
-            let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "bulletinTitleCell")
-            if sectionSelected == 0{
-                cell.textLabel?.text = bulletinTitleArray1[0]
+            if selectedSection == 0{
+                valueLabel.text = titleArray1[selectedRow]
             }else{
-                cell.textLabel?.text = bulletinTitleArray2[0]
+                valueLabel.text = titleArray2[selectedRow]
             }
-            return cell
         }else if indexPath.row == 1 {
-            let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "bulletinTimeCell")
-            cell.textLabel?.text = bulletinTimeArray[0]
-            return cell
-        }else {
-            let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "bulletinContentCell")
-            cell.textLabel?.text = bulletinContentArray[0]
-            return cell
+            if selectedSection == 0{
+                valueLabel.text = timeArray1[selectedRow]
+            }else{
+                valueLabel.text = timeArray2[selectedRow]
+            }
+        }else{
+            if selectedSection == 0{
+                valueLabel.text = contentArray1[selectedRow]
+            }else{
+                valueLabel.text = contentArray2[selectedRow]
+            }
         }
+        
+        return cell
+    }
+   
+    override func viewDidLoad() {
+        self.tabBarController?.tabBar.hidden = true
     }
     
 }
