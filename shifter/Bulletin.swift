@@ -7,15 +7,57 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
-class Bulletin: UITableViewController, ComposeDelegate {
+struct post {
+    let title : String!
+    let time : String!
+    let content : String!
+    let section : Int!
+    let employee : String!
+}
+
+class Bulletin: UITableViewController {
     var sectionSelected = Int()
-    var titleArray1 = [String]()
-    var titleArray2 = [String]()
-    var timeArray1 = [String]()
-    var timeArray2 = [String]()
-    var contentArray1 = [String]()
-    var contentArray2 = [String]()
+    var section0Posts = [post]()
+    var section1Posts = [post]()
+    var section0Refs = [AnyObject]()
+    var section1Refs = [AnyObject]()
+    var currentUID = String()
+
+
+    override func viewDidLoad() {
+        let tabBarVC = self.tabBarController as! TabBarViewController
+        currentUID = tabBarVC.currentUID
+        
+        //set listener
+        let databaseRef = FIRDatabase.database().reference()
+        databaseRef.child("posts").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: { snapshot in
+            //this func runs after tableView
+            let title = snapshot.value!["title"] as? String
+            let time = snapshot.value!["time"] as? String
+            let content = snapshot.value!["content"] as? String
+            let section = snapshot.value!["section"] as? Int
+            let employee = snapshot.value!["emplyee"] as? String
+            let postRef = snapshot.key  //get keys for each post(for deleting)
+            
+            //save to local array
+            if section == 0{
+                self.section0Posts.insert(post(title: title, time: time, content: content, section: section, employee: employee), atIndex: 0)
+                self.section0Refs.insert(postRef, atIndex: 0)
+            }else{
+                self.section1Posts.insert(post(title: title, time: time, content: content, section: section, employee: employee), atIndex: 0)
+                self.section1Refs.insert(postRef, atIndex: 0)
+            }
+            self.tableView.reloadData()
+        })
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.title = "公告欄"
+        self.tabBarController?.tabBar.hidden = false
+    }
     
     //set tableView
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -23,19 +65,23 @@ class Bulletin: UITableViewController, ComposeDelegate {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var count = Int()
+        
         if section == 0{
-            return titleArray1.count
+            count = section0Posts.count
         }else{
-            return titleArray2.count
+            count = section1Posts.count
         }
+
+        return count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         if indexPath.section == 0{
-            cell.textLabel?.text = titleArray1[indexPath.row]
+            cell.textLabel?.text = self.section0Posts[indexPath.row].title
         }else{
-            cell.textLabel?.text = titleArray2[indexPath.row]
+            cell.textLabel?.text = self.section1Posts[indexPath.row].title
         }
         return cell
     }
@@ -50,29 +96,29 @@ class Bulletin: UITableViewController, ComposeDelegate {
 
     //set delete function
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        let databaseRef = FIRDatabase.database().reference()
+        
         if editingStyle == .Delete{
             if indexPath.section == 0{
-                titleArray1.removeAtIndex(indexPath.row)
-                timeArray1.removeAtIndex(indexPath.row)
-                contentArray1.removeAtIndex(indexPath.row)
-                NSUserDefaults.standardUserDefaults().setObject(titleArray1, forKey: "titleArray1")
-                NSUserDefaults.standardUserDefaults().setObject(timeArray1, forKey: "timeArray1")
-                NSUserDefaults.standardUserDefaults().setObject(contentArray1, forKey: "contentArray1")
+                databaseRef.child("Posts").child(section0Refs[indexPath.row] as! String).removeValue() //remove from database
+                section0Posts.removeAtIndex(indexPath.row)
+                section0Refs.removeAtIndex(indexPath.row) //remove from local array
             }else{
-                titleArray2.removeAtIndex(indexPath.row)
-                timeArray2.removeAtIndex(indexPath.row)
-                contentArray2.removeAtIndex(indexPath.row)
-                NSUserDefaults.standardUserDefaults().setObject(titleArray2, forKey: "titleArray2")
-                NSUserDefaults.standardUserDefaults().setObject(timeArray2, forKey: "timeArray2")
-                NSUserDefaults.standardUserDefaults().setObject(contentArray2, forKey: "contentArray2")
+                
+                databaseRef.child("Posts").child(section1Refs[indexPath.row] as! String).removeValue()
+                section1Posts.removeAtIndex(indexPath.row)
+                section1Refs.removeAtIndex(indexPath.row) //remove from local array
+                //remove from database
             }
-            tableView.reloadData()
         }
+        tableView.reloadData()
+        
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.title = "Back" //set back button
         performSegueWithIdentifier("bulletinDetail", sender: self)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     @IBAction func composeButton(sender: UIBarButtonItem) {
@@ -85,82 +131,18 @@ class Bulletin: UITableViewController, ComposeDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let indexPath = self.tableView.indexPathForSelectedRow
 
-        if segue.identifier == "bulletinCompose"{
-            let composeVC = segue.destinationViewController as! BulletinCompose
-            composeVC.delegate = self
-        }else if segue.identifier == "bulletinDetail"{
+        if segue.identifier == "bulletinDetail"{
             let detailVC = segue.destinationViewController as! BulletinDetail
             detailVC.selectedSection = indexPath!.section
             detailVC.selectedRow = indexPath!.row
-            detailVC.titleArray1 = titleArray1
-            detailVC.titleArray2 = titleArray2
-            detailVC.timeArray1 = timeArray1
-            detailVC.timeArray2 = timeArray2
-            detailVC.contentArray1 = contentArray1
-            detailVC.contentArray2 = contentArray2
-        }
-    }
-    
-    //pass value from composeVC
-    func setSection(sectionPressed: Int){
-        sectionSelected = sectionPressed
-    }
-    
-    //save input value to local arrays
-    func setInputValues(inputTitle: String, inputTime: String, inputContent: String){
-        
-        if sectionSelected == 0{
-            titleArray1.append(inputTitle)
-            timeArray1.append(inputTime)
-            contentArray1.append(inputContent)
-            NSUserDefaults.standardUserDefaults().setObject(titleArray1, forKey: "titleArray1")
-            NSUserDefaults.standardUserDefaults().setObject(timeArray1, forKey: "timeArray1")
-            NSUserDefaults.standardUserDefaults().setObject(contentArray1, forKey: "contentArray1")
+            detailVC.section0Posts = section0Posts
+            detailVC.section1Posts = section1Posts
+            detailVC.section0Refs = section0Refs
+            detailVC.section1Refs = section1Refs
         }else{
-            titleArray2.append(inputTitle)
-            timeArray2.append(inputTime)
-            contentArray2.append(inputContent)
-            NSUserDefaults.standardUserDefaults().setObject(titleArray2, forKey: "titleArray2")
-            NSUserDefaults.standardUserDefaults().setObject(timeArray2, forKey: "timeArray2")
-            NSUserDefaults.standardUserDefaults().setObject(contentArray2, forKey: "contentArray2")
+            let composeVC = segue.destinationViewController as! BulletinCompose
+            composeVC.currentUID = currentUID
         }
-
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        //give array the value took out from NSUserDefaults
-        if NSUserDefaults.standardUserDefaults().objectForKey("titleArray1") != nil{
-            titleArray1 = NSUserDefaults.standardUserDefaults().objectForKey("titleArray1") as! Array
-        }
-        if NSUserDefaults.standardUserDefaults().objectForKey("titleArray2") != nil{
-            titleArray2 = NSUserDefaults.standardUserDefaults().objectForKey("titleArray2") as! Array
-        }
-        if NSUserDefaults.standardUserDefaults().objectForKey("timeArray1") != nil{
-            timeArray1 = NSUserDefaults.standardUserDefaults().objectForKey("timeArray1") as! Array
-        }
-        if NSUserDefaults.standardUserDefaults().objectForKey("timeArray2") != nil{
-            timeArray2 = NSUserDefaults.standardUserDefaults().objectForKey("timeArray2") as! Array
-        }
-        if NSUserDefaults.standardUserDefaults().objectForKey("contentArray1") != nil{
-            contentArray1 = NSUserDefaults.standardUserDefaults().objectForKey("contentArray1") as! Array
-        }
-        if NSUserDefaults.standardUserDefaults().objectForKey("contentArray2") != nil{
-            contentArray2 = NSUserDefaults.standardUserDefaults().objectForKey("contentArray2") as! Array
-        }
-        
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        self.title = "公告欄"
-        self.tabBarController?.tabBar.hidden = false
-        tableView.reloadData()
-        
-    }
-
-    
-    
-
-
 }

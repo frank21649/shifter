@@ -13,12 +13,37 @@ class BulletinDetail: UITableViewController {
     let subjectArray = ["標題：","時間：","內容"]
     var selectedSection = Int()
     var selectedRow = Int()
-    var titleArray1 = [String]()
-    var titleArray2 = [String]()
-    var timeArray1 = [String]()
-    var timeArray2 = [String]()
-    var contentArray1 = [String]()
-    var contentArray2 = [String]()
+    var section0Posts = [post]()
+    var section1Posts = [post]()
+    var section0Refs = [AnyObject]()
+    var section1Refs = [AnyObject]()
+    var editMode = Bool()
+    
+    
+    override func viewDidLoad() {
+        self.tabBarController?.tabBar.hidden = true
+        let editButton = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "editPressed")
+        navigationItem.rightBarButtonItem = editButton
+    }
+    
+    func editPressed(){
+        performSegueWithIdentifier("editPressed", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "editPressed"{
+            editMode = true
+            let composeVC = segue.destinationViewController as! BulletinCompose
+            composeVC.editMode = editMode
+            composeVC.section0Posts = section0Posts
+            composeVC.section1Posts = section1Posts
+            composeVC.selectedSection = selectedSection
+            composeVC.selectedRow = selectedRow
+            composeVC.section0Refs = section0Refs
+            composeVC.section1Refs = section1Refs
+            
+        }
+    }
     
     //set tableView
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -26,40 +51,40 @@ class BulletinDetail: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("bulletinDetailCell")! as UITableViewCell
-        let subjectLabel = UILabel(frame: CGRectMake(20,10,51,21))
         
-        //set subject and content labels
-        cell.addSubview(subjectLabel)
-        subjectLabel.text = subjectArray[indexPath.row]
-        let valueLabel = UILabel(frame: CGRectMake(60,10,400,21))
-        cell.addSubview(valueLabel)
+        
+//        if editMode == false{
+            let cell = tableView.dequeueReusableCellWithIdentifier("bulletinDetailCell")! as UITableViewCell
+            let subjectLabel = UILabel(frame: CGRectMake(20,10,51,21))
+            
+            //set subject and content labels
+            cell.addSubview(subjectLabel)
+            subjectLabel.text = subjectArray[indexPath.row]
+            let valueLabel = UILabel(frame: CGRectMake(60,10,400,21))
+            cell.addSubview(valueLabel)
+            
+            if indexPath.row == 0 {
+                if selectedSection == 0{
+                    valueLabel.text = section0Posts[selectedRow].title
+                }else{
+                    valueLabel.text = section1Posts[selectedRow].title
+                }
+            }else if indexPath.row == 1 {
+                if selectedSection == 0{
+                    valueLabel.text = section0Posts[selectedRow].time
+                }else{
+                    valueLabel.text = section1Posts[selectedRow].time
+                }
+            }else{
+                if selectedSection == 0{
+                    valueLabel.text = section0Posts[selectedRow].content
+                }else{
+                    valueLabel.text = section1Posts[selectedRow].content
+                }
+            }
+            
+            return cell
 
-        if indexPath.row == 0 {
-            if selectedSection == 0{
-                valueLabel.text = titleArray1[selectedRow]
-            }else{
-                valueLabel.text = titleArray2[selectedRow]
-            }
-        }else if indexPath.row == 1 {
-            if selectedSection == 0{
-                valueLabel.text = timeArray1[selectedRow]
-            }else{
-                valueLabel.text = timeArray2[selectedRow]
-            }
-        }else{
-            if selectedSection == 0{
-                valueLabel.text = contentArray1[selectedRow]
-            }else{
-                valueLabel.text = contentArray2[selectedRow]
-            }
-        }
-        
-        return cell
-    }
-   
-    override func viewDidLoad() {
-        self.tabBarController?.tabBar.hidden = true
     }
     
 }
