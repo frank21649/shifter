@@ -1,27 +1,64 @@
 
 
 import UIKit
+import Firebase
+import FirebaseDatabase
+
+struct accounts {
+    let ID: String!
+    let password: String!
+}
 
 class LoginViewContoller: UIViewController, UITextFieldDelegate {
-    //set test account ID/password
-    let ID = "frank21649"
-    let password = "0000"
+    //set test accovar ID/password
+    var inputID = String()
+    var inputPassword = String()
+    var accountArray = [accounts]()
     
     @IBOutlet weak var idTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
     @IBOutlet weak var errorStatusLabel: UILabel!
     
+    override func viewDidLoad() {
+        self.idTextfield.delegate = self
+        self.passwordTextfield.delegate = self
+        
+        //save all users' account to array
+        let databaseRef = FIRDatabase.database().reference()
+        databaseRef.child("employee").observeEventType(.ChildAdded, withBlock: { snapshot in
+            let getID = snapshot.value!["ID"] as? String
+            let getPassword = snapshot.value!["password"] as? String
+            self.accountArray.append(accounts(ID: getID, password: getPassword))
+        })
+    }
+
     
     @IBAction func pressLogin(sender: UIButton) {
-        //check ID/password
-        if idTextfield.text == "frank21649" && passwordTextfield.text == "0000"{
-            performSegueWithIdentifier("showHome", sender: nil)
-        }else if idTextfield.text == "" || passwordTextfield.text == ""{
-            errorStatusLabel.text = "please enter ID and password"
-            errorStatusLabel.hidden = false
-        }else{
-            errorStatusLabel.text = "ID or password not correct"
-            errorStatusLabel.hidden = false
+        inputID = idTextfield.text!
+        inputPassword = passwordTextfield.text!
+
+        for i in 0...accountArray.count-1{
+            if inputID == accountArray[i].ID && inputPassword == accountArray[i].password{
+                errorStatusLabel.hidden = true
+                performSegueWithIdentifier("showHome", sender: self)
+            }else if inputID == "" || inputPassword == ""{
+                errorStatusLabel.text = "please enter ID and password"
+                errorStatusLabel.hidden = false
+            }else{
+                errorStatusLabel.text = "ID or password incorrect"
+                errorStatusLabel.hidden = false
+            }
+                
+        }
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showHome"{
+            let tabBarVC = segue.destinationViewController as? TabBarViewController
+            tabBarVC!.currentUID = inputID
+            let composeVC = BulletinCompose() as BulletinCompose
+            composeVC.currentUID = inputID
         }
     }
     
@@ -31,15 +68,6 @@ class LoginViewContoller: UIViewController, UITextFieldDelegate {
         passwordTextfield.resignFirstResponder()
         return true
     }
-    
-    
-    override func viewDidLoad() {
-        self.idTextfield.delegate = self
-        self.passwordTextfield.delegate = self
-    }
-    
-    
-    
 
 }
 
@@ -56,5 +84,4 @@ class ForgotPasswordViewController: UIViewController{
     @IBAction func sendViaEmail(sender: UIButton) {
         self.presentViewController(loginVC, animated: true, completion: nil)
     }
-    
 }

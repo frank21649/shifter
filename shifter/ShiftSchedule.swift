@@ -8,12 +8,13 @@
 
 import UIKit
 
-var pageArray = []
 
-class ShiftSchedule: UIPageViewController {
-    override func setViewControllers(viewControllers: [UIViewController]?, direction: UIPageViewControllerNavigationDirection, animated: Bool, completion: ((Bool) -> Void)?) {
-        pageArray = ["week","Home","day"]
-        
+class ShiftSchedule: UIViewController {
+    var currentUID = String()
+    
+    override func viewDidLoad() {
+        let tabBarVC = self.tabBarController as! TabBarViewController
+        currentUID = tabBarVC.currentUID
     }
 
 }
