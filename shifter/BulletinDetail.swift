@@ -22,7 +22,7 @@ class BulletinDetail: UITableViewController {
     
     override func viewDidLoad() {
         self.tabBarController?.tabBar.hidden = true
-        let editButton = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "editPressed")
+        let editButton = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(BulletinDetail.editPressed))
         navigationItem.rightBarButtonItem = editButton
     }
     

@@ -31,7 +31,7 @@ class BulletinCompose: UIViewController, UITableViewDelegate, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "新增公告"
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "donePressed")
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: #selector(BulletinCompose.donePressed))
         navigationItem.rightBarButtonItem = doneButton
         firstLoad = true
         self.tabBarController?.tabBar.hidden = true
@@ -117,14 +117,14 @@ class BulletinCompose: UIViewController, UITableViewDelegate, UITableViewDataSou
                 type1Button.setTitleColor(.blackColor(), forState: .Normal)
                 type1Button.setTitleColor(UIColor.blueColor() , forState: .Selected)
                 type1Button.tag = 1
-                type1Button.addTarget(self, action: "sectionPressed:", forControlEvents: .TouchUpInside)
+                type1Button.addTarget(self, action: #selector(BulletinCompose.sectionPressed(_:)), forControlEvents: .TouchUpInside)
                 cell.contentView.addSubview(type1Button)
                 
                 let type2Button = UIButton(frame: CGRect(x: 140,y: 8,width: 46,height: 30))
                 type2Button.setTitle("區", forState: .Normal)
                 type2Button.setTitleColor(.blackColor(), forState: .Normal)
                 type2Button.tag = 2
-                type2Button.addTarget(self, action: "sectionPressed:", forControlEvents: .TouchUpInside)
+                type2Button.addTarget(self, action: #selector(BulletinCompose.sectionPressed(_:)), forControlEvents: .TouchUpInside)
                 cell.contentView.addSubview(type2Button)
                 
                 if sectionPressed == 0{
@@ -177,14 +177,14 @@ class BulletinCompose: UIViewController, UITableViewDelegate, UITableViewDataSou
                 type1Button.setTitleColor(.blackColor(), forState: .Normal)
                 type1Button.setTitleColor(UIColor.blueColor() , forState: .Selected)
                 type1Button.tag = 1
-                type1Button.addTarget(self, action: "sectionPressed:", forControlEvents: .TouchUpInside)
+                type1Button.addTarget(self, action: #selector(BulletinCompose.sectionPressed(_:)), forControlEvents: .TouchUpInside)
                 cell.contentView.addSubview(type1Button)
                 
                 let type2Button = UIButton(frame: CGRect(x: 140,y: 8,width: 46,height: 30))
                 type2Button.setTitle("區", forState: .Normal)
                 type2Button.setTitleColor(.blackColor(), forState: .Normal)
                 type2Button.tag = 2
-                type2Button.addTarget(self, action: "sectionPressed:", forControlEvents: .TouchUpInside)
+                type2Button.addTarget(self, action: #selector(BulletinCompose.sectionPressed(_:)), forControlEvents: .TouchUpInside)
                 cell.contentView.addSubview(type2Button)
                 
                 if sectionPressed == 0{
