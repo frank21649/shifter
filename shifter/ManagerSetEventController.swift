@@ -105,7 +105,7 @@ class ManagerSetEventViewController: UIViewController,MSWeekViewDelegate,MSWeekV
             
             let dateformatter = NSDateFormatter()
             
-            dateformatter.dateFormat = "MMM d, yyyy, h:mm a"
+            dateformatter.dateFormat = "yyyy-M-dd-H:mm"
     
             let startDate = dateformatter.dateFromString(startDateString)!
         
@@ -242,13 +242,15 @@ class ManagerSetEventViewController: UIViewController,MSWeekViewDelegate,MSWeekV
     
     override func viewWillAppear(animated: Bool) {
         
-        var neweEventArray = [MSEvent]()
+        var newEventArray = [MSEvent]()
         
         let eventDBRef = FIRDatabase.database().reference()
         
         eventDBRef.child("managerEvent").child("010").child("2016-10-16").observeEventType(.ChildChanged, withBlock: {
         
         snapshot in
+            print("wwwwwwwwwwww",snapshot.value)
+    
             
             let startDateString = snapshot.value!["Start Date"] as! String
             
@@ -265,7 +267,7 @@ class ManagerSetEventViewController: UIViewController,MSWeekViewDelegate,MSWeekV
             
             let dateformatter = NSDateFormatter()
             
-            dateformatter.dateFormat = "MMM d, yyyy, h:mm a"
+            dateformatter.dateFormat = "yyyy-M-dd-H:mm"
             
             let startDate = dateformatter.dateFromString(startDateString)!
             
@@ -284,11 +286,14 @@ class ManagerSetEventViewController: UIViewController,MSWeekViewDelegate,MSWeekV
             
             print("aaaaaaaaaaaaaaaaaaaaaaaa")
             
-            neweEventArray.append(newEvent)
+            newEventArray.append(newEvent)
+            
+            print(newEventArray)
             
             
-            self.weeklyView.events = neweEventArray
+            self.weeklyView.events = newEventArray
 
+            //print(self.weeklyView.events)
             
         
         

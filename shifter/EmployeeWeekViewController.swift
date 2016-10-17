@@ -79,9 +79,11 @@ class EmployeeWeekViewController: UIViewController,MSWeekViewDelegate {
             
             let dateformatter = NSDateFormatter()
             
-            dateformatter.dateFormat = "MMM d, yyyy, h:mm a"
+            dateformatter.dateFormat = "yyyy-M-dd-H:mm"
             
             let startDate = dateformatter.dateFromString(startDateString)!
+            
+            print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",startDate)
             
             let endDate = dateformatter.dateFromString(endDateString)!
             
@@ -97,6 +99,7 @@ class EmployeeWeekViewController: UIViewController,MSWeekViewDelegate {
             let newEvent = MSEvent.make(startDate, end: endDate, title: "\(shortStartDateString) \(coding)", location: "\(shortEndDateString)", key: eventID, coding: coding, dancing: dancing, cleaning: cleaning)
             
             print("aaaaaaaaaaaaaaaaaaaaaaaa")
+            print(newEvent.StartDate)
             
             self.weeklyView.addEvent(newEvent)
             
@@ -162,7 +165,7 @@ class EmployeeWeekViewController: UIViewController,MSWeekViewDelegate {
         
         let eventDBRef = FIRDatabase.database().reference()
         
-        eventDBRef.child("Event").observeEventType(.ChildChanged, withBlock: {
+        eventDBRef.child("employeeShift").child("2016-10-16").child("102306111").observeEventType(.ChildChanged, withBlock: {
             
             snapshot in
             
@@ -181,7 +184,7 @@ class EmployeeWeekViewController: UIViewController,MSWeekViewDelegate {
             
             let dateformatter = NSDateFormatter()
             
-            dateformatter.dateFormat = "MMM d, yyyy, h:mm a"
+            dateformatter.dateFormat = "yyyy-M-dd-H:mm"
             
             let startDate = dateformatter.dateFromString(startDateString)!
             

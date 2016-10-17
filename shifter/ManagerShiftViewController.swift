@@ -80,17 +80,19 @@ class ManagerShiftViewController: UIViewController,MSWeekViewDelegate {
             
             let eventType = post["Type"] as! String
             
-            print(snapshot.childSnapshotForPath("Coding"))
+            print(snapshot.childSnapshotForPath("Cleaning"))
             
             let codingList = snapshot.childSnapshotForPath("Coding").value
             let cleaningList = snapshot.childSnapshotForPath("Cleaning").value
             let dancingList = snapshot.childSnapshotForPath("Dancing").value
             
-            print(codingList![0])
+            print(cleaningList![0][1])
             
             let dateformatter = NSDateFormatter()
             
-            dateformatter.dateFormat = "MMM d, yyyy, h:mm a"
+            dateformatter.dateFormat = "yyyy-M-dd-H:mm"
+            
+            print("aaaaaaaaaaaaaaaa",startDateString)
             
             let startDate = dateformatter.dateFromString(startDateString)!
             
@@ -106,7 +108,7 @@ class ManagerShiftViewController: UIViewController,MSWeekViewDelegate {
             
             //self.eventList.append(eventStruct(startDate: startDate,endDate: endDate, coding: coding, dancing: dancing, cleaning: cleaning, key: eventID))
             
-            let newEvent = MSEvent.make(startDate, end: endDate, title: "\(eventType)\n\(shortStartDateString)", location: "\(shortEndDateString)", key: eventID, codingList: codingList as! [String], cleaningList: cleaningList as! [String], dancingList:dancingList as![String] ,shiftType: eventType)
+            let newEvent = MSEvent.make(startDate, end: endDate, title: "\(eventType)\n\(shortStartDateString)", location: "\(shortEndDateString)", key: eventID, codingList: codingList as! [[String]], cleaningList: cleaningList as! [[String]], dancingList:dancingList as![[String]] ,shiftType: eventType)
            
             
             print(newEvent)
@@ -201,7 +203,7 @@ class ManagerShiftViewController: UIViewController,MSWeekViewDelegate {
             
             let dateformatter = NSDateFormatter()
             
-            dateformatter.dateFormat = "MMM d, yyyy, h:mm a"
+            dateformatter.dateFormat = "yyyy-M-dd-H:mm"
             
             let startDate = dateformatter.dateFromString(startDateString)!
             
@@ -217,7 +219,7 @@ class ManagerShiftViewController: UIViewController,MSWeekViewDelegate {
             
             //self.eventList.append(eventStruct(startDate: startDate,endDate: endDate, coding: coding, dancing: dancing, cleaning: cleaning, key: eventID))
             
-            let newEvent = MSEvent.make(startDate, end: endDate, title: "\(eventType)\n\(shortStartDateString)", location: "\(shortEndDateString)", key: eventID, codingList: codingList as! [String], cleaningList: cleaningList as! [String], dancingList:dancingList as![String] ,shiftType: eventType)
+            let newEvent = MSEvent.make(startDate, end: endDate, title: "\(eventType)\n\(shortStartDateString)", location: "\(shortEndDateString)", key: eventID, codingList: codingList as! [[String]], cleaningList: cleaningList as! [[String]], dancingList:dancingList as! [[String]] ,shiftType: eventType)
             
             
             print("aaaaaaaaaaaaaaaaaaaaaaaa")
