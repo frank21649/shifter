@@ -91,8 +91,11 @@ class addEventTableViewController: UIViewController, UITableViewDelegate, UITabl
         }
         
         
-        let startDate = NSDateFormatter.localizedStringFromDate(dateArray[0], dateStyle: NSDateFormatterStyle.MediumStyle, timeStyle: NSDateFormatterStyle.ShortStyle)
-        let endDate = NSDateFormatter.localizedStringFromDate(dateArray[1], dateStyle: NSDateFormatterStyle.MediumStyle, timeStyle: NSDateFormatterStyle.ShortStyle)
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-M-dd-H:mm"
+        
+        let startDate = dateFormatter.stringFromDate(dateArray[0])
+        let endDate = dateFormatter.stringFromDate(dateArray[1])
         
                 
         

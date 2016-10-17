@@ -54,19 +54,39 @@ class ManagerShiftDetailViewController: UIViewController, UITableViewDataSource,
         conditionCell.totalEmployeeLabel.text = "總共： 人"
         conditionCell.lackingEmployeeLabel.text = "缺少： 人"
         
-        if indexPath.section == 1{
-            employeeCell.employeeNameLabel.text = selectedEvent.codingList[indexPath.row] as? String
-        }else if indexPath.section == 2 {
-            employeeCell.employeeNameLabel.text = selectedEvent.cleaningList[indexPath.row] as? String
-        }else if indexPath.section == 3 {
-            employeeCell.employeeNameLabel.text = selectedEvent.dancingList[indexPath.row] as? String
-        }
+        let empStartDate: NSDate
+        let empEndDate: NSDate
         
         let shortFormatter = NSDateFormatter()
         shortFormatter.dateFormat = "H:mm"
         
-        employeeCell.startTimeLabel.text = shortFormatter.stringFromDate(selectedEvent.StartDate)
-        employeeCell.endTimeLabel.text = shortFormatter.stringFromDate(selectedEvent.EndDate)
+        let dateformatter = NSDateFormatter()
+        
+        dateformatter.dateFormat = "yyyy-M-dd-H:mm"
+        if indexPath.section == 1{
+            employeeCell.employeeNameLabel.text = selectedEvent.codingList[indexPath.row][0] as? String
+            
+        
+            
+            
+        }else if indexPath.section == 2 {
+            employeeCell.employeeNameLabel.text = selectedEvent.cleaningList[indexPath.row][0] as? String
+            
+            print(selectedEvent.cleaningList[indexPath.row][1])
+            
+            empStartDate = dateformatter.dateFromString((selectedEvent.cleaningList[indexPath.row][1] as? String)!)!
+            empEndDate = dateformatter.dateFromString((selectedEvent.cleaningList[indexPath.row][2] as? String)!)!
+            employeeCell.startTimeLabel.text = shortFormatter.stringFromDate(empStartDate)
+            employeeCell.endTimeLabel.text = shortFormatter.stringFromDate(empEndDate)
+            
+        }else if indexPath.section == 3 {
+            employeeCell.employeeNameLabel.text = selectedEvent.dancingList[indexPath.row][0] as? String
+        }
+        
+        
+        
+        //employeeCell.startTimeLabel.text = shortFormatter.stringFromDate(selectedEvent.StartDate)
+        //employeeCell.endTimeLabel.text = shortFormatter.stringFromDate(selectedEvent.EndDate)
         
         
         
