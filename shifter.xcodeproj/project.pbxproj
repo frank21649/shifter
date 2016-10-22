@@ -58,10 +58,11 @@
 		4385DD4A1D97B8C200FDD811 /* NotificationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4385DD491D97B8C200FDD811 /* NotificationDetail.swift */; };
 		43D2EDBC1DAF95AB00E5133E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D2EDBB1DAF95AB00E5133E /* TabBarViewController.swift */; };
 		43E549441DA25422003E5BD8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43E549431DA25422003E5BD8 /* GoogleService-Info.plist */; };
-		8B5BF2709660C32017C0C01C /* libPods-shifter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 968C8DAC11D3C95759B60E67 /* libPods-shifter.a */; };
+		CDCF55F9FA1EE4396F39383B /* Pods_shifter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 735680C7B9CA8A9AB24F547B /* Pods_shifter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0468C0411DBA6E29003CC48A /* PopupDialog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PopupDialog.framework; path = "../../Library/Developer/Xcode/DerivedData/shifter-aqhidcuryzshjydgomlseguncljs/Build/Products/Debug-iphonesimulator/PopupDialog/PopupDialog.framework"; sourceTree = "<group>"; };
 		04852CF91DB37F6600229CAE /* shifter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "shifter-Bridging-Header.h"; sourceTree = "<group>"; };
 		04852CFE1DB37F9700229CAE /* MSCollectionViewCalendarLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCollectionViewCalendarLayout.h; sourceTree = "<group>"; };
 		04852CFF1DB37F9700229CAE /* MSCollectionViewCalendarLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCollectionViewCalendarLayout.m; sourceTree = "<group>"; };
@@ -134,8 +135,8 @@
 		4385DD491D97B8C200FDD811 /* NotificationDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationDetail.swift; sourceTree = "<group>"; };
 		43D2EDBB1DAF95AB00E5133E /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		43E549431DA25422003E5BD8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		735680C7B9CA8A9AB24F547B /* Pods_shifter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shifter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74F47A4D01FED2182C3E71B5 /* Pods-shifter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shifter.release.xcconfig"; path = "Pods/Target Support Files/Pods-shifter/Pods-shifter.release.xcconfig"; sourceTree = "<group>"; };
-		968C8DAC11D3C95759B60E67 /* libPods-shifter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-shifter.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF887F1EFBBF18CB0BFB310D /* Pods-shifter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shifter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-shifter/Pods-shifter.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,7 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B5BF2709660C32017C0C01C /* libPods-shifter.a in Frameworks */,
+				CDCF55F9FA1EE4396F39383B /* Pods_shifter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,7 +332,8 @@
 		CB87C5AC26A8BCAFD41E06A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				968C8DAC11D3C95759B60E67 /* libPods-shifter.a */,
+				0468C0411DBA6E29003CC48A /* PopupDialog.framework */,
+				735680C7B9CA8A9AB24F547B /* Pods_shifter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -371,7 +373,7 @@
 				TargetAttributes = {
 					43173E031D5328620043399F = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 993TN7KGWA;
+						DevelopmentTeam = QFZ2663XLK;
 						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -629,6 +631,21 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = shifter/shifter.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_ROOT}/Firebase/Headers",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAuth\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseDatabase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleNetworkingUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
+				);
 				INFOPLIST_FILE = shifter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = chlorophyll.shifter;
@@ -636,6 +653,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "shifter/shifter-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 2.3;
+				USER_HEADER_SEARCH_PATHS = "\"${PODS_ROOT}/\"/**";
 			};
 			name = Debug;
 		};
@@ -647,12 +665,28 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = shifter/shifter.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_ROOT}/Firebase/Headers",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAuth\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseDatabase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleNetworkingUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
+				);
 				INFOPLIST_FILE = shifter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = chlorophyll.shifter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "shifter/shifter-Bridging-Header.h";
 				SWIFT_VERSION = 2.3;
+				USER_HEADER_SEARCH_PATHS = "\"${PODS_ROOT}/\"/**";
 			};
 			name = Release;
 		};

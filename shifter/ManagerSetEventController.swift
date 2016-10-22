@@ -78,59 +78,7 @@ class ManagerSetEventViewController: UIViewController,MSWeekViewDelegate,MSWeekV
         let weekEndDate = weekEndDateFormatter.stringFromDate(currentDate.addDays(6))
         
         titleItem.title = "\(convertedDate) - \(weekEndDate)"
-        
-        
-        
-      
-        
-        
-        let eventDBRef = FIRDatabase.database().reference()
-        
-        eventDBRef.child("managerEvent").child("010").child("2016-10-16").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
-            snapshot in
-            
-            print(snapshot.value)
-            let startDateString = snapshot.value!["Start Date"] as! String
-            
-            let eventID = snapshot.key
-            
-            let endDateString = snapshot.value!["End Date"] as! String
-            
-            let coding = snapshot.value!["Coding"] as! Int
-            
-            
-            let dancing = snapshot.value!["Dancing"] as! Int
-            
-            let cleaning = snapshot.value!["Cleaning"] as! Int
-            
-            let dateformatter = NSDateFormatter()
-            
-            dateformatter.dateFormat = "yyyy-M-dd-H:mm"
-    
-            let startDate = dateformatter.dateFromString(startDateString)!
-        
-            let endDate = dateformatter.dateFromString(endDateString)!
-            
-            let shortFormatter = NSDateFormatter()
-            shortFormatter.dateFormat = "H:mm"
-            
-            let shortStartDateString = shortFormatter.stringFromDate(startDate)
-            
-            let shortEndDateString = shortFormatter.stringFromDate(endDate)
-            
-            self.eventList.append(eventStruct(startDate: startDate,endDate: endDate, coding: coding, dancing: dancing, cleaning: cleaning, key: eventID))
-            
-            let newEvent = MSEvent.make(startDate, end: endDate, title: "\(shortStartDateString) \(coding)", location: "\(shortEndDateString)", key: eventID, coding: coding, dancing: dancing, cleaning: cleaning)
-            
-            print("aaaaaaaaaaaaaaaaaaaaaaaa")
-                    
-            self.weeklyView.addEvent(newEvent)
-            
-            
-        })
-        
-        
-        
+
     }
     
     
@@ -244,14 +192,14 @@ class ManagerSetEventViewController: UIViewController,MSWeekViewDelegate,MSWeekV
         
         var newEventArray = [MSEvent]()
         
+        self.weeklyView.events = []
+        
         let eventDBRef = FIRDatabase.database().reference()
         
-        eventDBRef.child("managerEvent").child("010").child("2016-10-16").observeEventType(.ChildChanged, withBlock: {
-        
-        snapshot in
-            print("wwwwwwwwwwww",snapshot.value)
-    
+        eventDBRef.child("managerEvent").child("010").child("2016-10-16").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+            snapshot in
             
+            print(snapshot.value)
             let startDateString = snapshot.value!["Start Date"] as! String
             
             let eventID = snapshot.key
@@ -286,17 +234,9 @@ class ManagerSetEventViewController: UIViewController,MSWeekViewDelegate,MSWeekV
             
             print("aaaaaaaaaaaaaaaaaaaaaaaa")
             
-            newEventArray.append(newEvent)
-            
-            print(newEventArray)
+            self.weeklyView.addEvent(newEvent)
             
             
-            self.weeklyView.events = newEventArray
-
-            //print(self.weeklyView.events)
-            
-        
-        
         })
         
         

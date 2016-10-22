@@ -82,3 +82,20 @@ strip_invalid_archs() {
   fi
 }
 
+
+if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "$BUILT_PRODUCTS_DIR/Collection/Collection.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/DateTools/DateTools.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/EasyDate/EasyDate.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/HSDatePickerViewController/HSDatePickerViewController.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Masonry/Masonry.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/UIColor-HexString/UIColor_HexString.framework"
+fi
+if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "$BUILT_PRODUCTS_DIR/Collection/Collection.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/DateTools/DateTools.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/EasyDate/EasyDate.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/HSDatePickerViewController/HSDatePickerViewController.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Masonry/Masonry.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/UIColor-HexString/UIColor_HexString.framework"
+fi

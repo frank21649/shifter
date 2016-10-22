@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'B8CE0A973F092C4F209C883C2A809607'
+               BlueprintIdentifier = '9E5DC02CD0E38CDF33A974C9E457671C'
                BlueprintName = 'Collection'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libCollection.a'>
+               BuildableName = 'Collection.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
