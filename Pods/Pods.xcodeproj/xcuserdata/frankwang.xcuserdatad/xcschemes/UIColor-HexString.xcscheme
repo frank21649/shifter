@@ -14,8 +14,13 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+<<<<<<< HEAD
                BlueprintIdentifier = "0A5E475D51DE5F84CF9BFA55D1818482"
                BuildableName = "UIColor_HexString.framework"
+=======
+               BlueprintIdentifier = "C9EB349058909F3E8A68214FF81AB623"
+               BuildableName = "libUIColor-HexString.a"
+>>>>>>> fw-new-start
                BlueprintName = "UIColor-HexString"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
@@ -45,8 +50,13 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
+<<<<<<< HEAD
             BlueprintIdentifier = "0A5E475D51DE5F84CF9BFA55D1818482"
             BuildableName = "UIColor_HexString.framework"
+=======
+            BlueprintIdentifier = "C9EB349058909F3E8A68214FF81AB623"
+            BuildableName = "libUIColor-HexString.a"
+>>>>>>> fw-new-start
             BlueprintName = "UIColor-HexString"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
@@ -63,8 +73,13 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
+<<<<<<< HEAD
             BlueprintIdentifier = "0A5E475D51DE5F84CF9BFA55D1818482"
             BuildableName = "UIColor_HexString.framework"
+=======
+            BlueprintIdentifier = "C9EB349058909F3E8A68214FF81AB623"
+            BuildableName = "libUIColor-HexString.a"
+>>>>>>> fw-new-start
             BlueprintName = "UIColor-HexString"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>

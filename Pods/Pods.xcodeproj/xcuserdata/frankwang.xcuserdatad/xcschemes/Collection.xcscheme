@@ -14,8 +14,13 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+<<<<<<< HEAD
                BlueprintIdentifier = "9E5DC02CD0E38CDF33A974C9E457671C"
                BuildableName = "Collection.framework"
+=======
+               BlueprintIdentifier = "B8CE0A973F092C4F209C883C2A809607"
+               BuildableName = "libCollection.a"
+>>>>>>> fw-new-start
                BlueprintName = "Collection"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
@@ -45,8 +50,13 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
+<<<<<<< HEAD
             BlueprintIdentifier = "9E5DC02CD0E38CDF33A974C9E457671C"
             BuildableName = "Collection.framework"
+=======
+            BlueprintIdentifier = "B8CE0A973F092C4F209C883C2A809607"
+            BuildableName = "libCollection.a"
+>>>>>>> fw-new-start
             BlueprintName = "Collection"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
@@ -63,8 +73,13 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
+<<<<<<< HEAD
             BlueprintIdentifier = "9E5DC02CD0E38CDF33A974C9E457671C"
             BuildableName = "Collection.framework"
+=======
+            BlueprintIdentifier = "B8CE0A973F092C4F209C883C2A809607"
+            BuildableName = "libCollection.a"
+>>>>>>> fw-new-start
             BlueprintName = "Collection"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>

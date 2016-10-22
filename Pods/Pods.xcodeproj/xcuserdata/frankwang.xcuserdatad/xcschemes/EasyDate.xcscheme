@@ -14,8 +14,13 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+<<<<<<< HEAD
                BlueprintIdentifier = "56A7902C26022C3A5411C8C34B7AE456"
                BuildableName = "EasyDate.framework"
+=======
+               BlueprintIdentifier = "C72F67998F33E2D9E9D357AA2C6AF196"
+               BuildableName = "libEasyDate.a"
+>>>>>>> fw-new-start
                BlueprintName = "EasyDate"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
@@ -45,8 +50,13 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
+<<<<<<< HEAD
             BlueprintIdentifier = "56A7902C26022C3A5411C8C34B7AE456"
             BuildableName = "EasyDate.framework"
+=======
+            BlueprintIdentifier = "C72F67998F33E2D9E9D357AA2C6AF196"
+            BuildableName = "libEasyDate.a"
+>>>>>>> fw-new-start
             BlueprintName = "EasyDate"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
@@ -63,8 +73,13 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
+<<<<<<< HEAD
             BlueprintIdentifier = "56A7902C26022C3A5411C8C34B7AE456"
             BuildableName = "EasyDate.framework"
+=======
+            BlueprintIdentifier = "C72F67998F33E2D9E9D357AA2C6AF196"
+            BuildableName = "libEasyDate.a"
+>>>>>>> fw-new-start
             BlueprintName = "EasyDate"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
