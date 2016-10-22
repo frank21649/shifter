@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0730"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5B1A6E66EDDF2CF3AB2DDAEF93F3525B"
-               BuildableName = "libPods-shifter.a"
-               BlueprintName = "Pods-shifter"
+               BlueprintIdentifier = "C72F67998F33E2D9E9D357AA2C6AF196"
+               BuildableName = "libEasyDate.a"
+               BlueprintName = "EasyDate"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5B1A6E66EDDF2CF3AB2DDAEF93F3525B"
-            BuildableName = "libPods-shifter.a"
-            BlueprintName = "Pods-shifter"
+            BlueprintIdentifier = "C72F67998F33E2D9E9D357AA2C6AF196"
+            BuildableName = "libEasyDate.a"
+            BlueprintName = "EasyDate"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -60,6 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "C72F67998F33E2D9E9D357AA2C6AF196"
+            BuildableName = "libEasyDate.a"
+            BlueprintName = "EasyDate"
+            ReferencedContainer = "container:Pods.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

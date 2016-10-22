@@ -39,7 +39,6 @@
 		04BCE1381DB496DA004A8162 /* editEventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCE1371DB496DA004A8162 /* editEventTableViewController.swift */; };
 		04BCE13A1DB49934004A8162 /* employeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCE1391DB49934004A8162 /* employeeCell.swift */; };
 		430738C71D59E108006F749A /* LoginViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430738C61D59E108006F749A /* LoginViewContoller.swift */; };
-		431022181D5F76F200C47D22 /* ShiftSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431022171D5F76F200C47D22 /* ShiftSchedule.swift */; };
 		4310221A1D5F791A00C47D22 /* Bulletin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431022191D5F791A00C47D22 /* Bulletin.swift */; };
 		4310221E1D60D6EB00C47D22 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4310221D1D60D6EB00C47D22 /* Notification.swift */; };
 		431022201D60E07800C47D22 /* ClockIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4310221F1D60E07800C47D22 /* ClockIn.swift */; };
@@ -113,7 +112,6 @@
 		04BCE1371DB496DA004A8162 /* editEventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = editEventTableViewController.swift; sourceTree = "<group>"; };
 		04BCE1391DB49934004A8162 /* employeeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = employeeCell.swift; sourceTree = "<group>"; };
 		430738C61D59E108006F749A /* LoginViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewContoller.swift; sourceTree = "<group>"; };
-		431022171D5F76F200C47D22 /* ShiftSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftSchedule.swift; sourceTree = "<group>"; };
 		431022191D5F791A00C47D22 /* Bulletin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bulletin.swift; sourceTree = "<group>"; };
 		4310221D1D60D6EB00C47D22 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		4310221F1D60E07800C47D22 /* ClockIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockIn.swift; sourceTree = "<group>"; };
@@ -133,7 +131,7 @@
 		43778AD61D6ECDDB00D74478 /* BulletinCompose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulletinCompose.swift; sourceTree = "<group>"; };
 		4385DD491D97B8C200FDD811 /* NotificationDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationDetail.swift; sourceTree = "<group>"; };
 		43D2EDBB1DAF95AB00E5133E /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		43E549431DA25422003E5BD8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		43E549431DA25422003E5BD8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		74F47A4D01FED2182C3E71B5 /* Pods-shifter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shifter.release.xcconfig"; path = "Pods/Target Support Files/Pods-shifter/Pods-shifter.release.xcconfig"; sourceTree = "<group>"; };
 		968C8DAC11D3C95759B60E67 /* libPods-shifter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-shifter.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF887F1EFBBF18CB0BFB310D /* Pods-shifter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shifter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-shifter/Pods-shifter.debug.xcconfig"; sourceTree = "<group>"; };
@@ -295,29 +293,13 @@
 			isa = PBXGroup;
 			children = (
 				04BCE11E1DB39093004A8162 /* shifter.entitlements */,
-				04852CFC1DB37F9700229CAE /* Lib */,
 				43E549431DA25422003E5BD8 /* GoogleService-Info.plist */,
+				43173E131D5328620043399F /* Info.plist */,
 				43173E071D5328620043399F /* AppDelegate.swift */,
 				43173E091D5328620043399F /* ViewController.swift */,
-				43173E0B1D5328620043399F /* Main.storyboard */,
-				04BCE13C1DB4BBE2004A8162 /* Shift Schedule */,
-				43173E0E1D5328620043399F /* Assets.xcassets */,
-				43173E101D5328620043399F /* LaunchScreen.storyboard */,
-				43173E131D5328620043399F /* Info.plist */,
-				430738C61D59E108006F749A /* LoginViewContoller.swift */,
-				43D2EDBB1DAF95AB00E5133E /* TabBarViewController.swift */,
-				431022171D5F76F200C47D22 /* ShiftSchedule.swift */,
-				431022191D5F791A00C47D22 /* Bulletin.swift */,
-				435AD2891D693D79000E38DA /* BulletinDetail.swift */,
-				43778AD61D6ECDDB00D74478 /* BulletinCompose.swift */,
-				4326143D1DACCD4D0080AD10 /* DateTableViewCell.swift */,
-				4326143E1DACCD4D0080AD10 /* DateTableViewCell.xib */,
-				432687331D83DD2A003BD479 /* TextInputTableViewCell.swift */,
-				432614371DABC64C0080AD10 /* TextInputTableViewCell.xib */,
-				4310221D1D60D6EB00C47D22 /* Notification.swift */,
-				4385DD491D97B8C200FDD811 /* NotificationDetail.swift */,
-				4310221F1D60E07800C47D22 /* ClockIn.swift */,
-				431022211D60E8F400C47D22 /* Settings.swift */,
+				04852CFC1DB37F9700229CAE /* Lib */,
+				43D580021DBB2D670033A19E /* Views */,
+				43D580011DBB2D3F0033A19E /* View Controllers */,
 				04852CF91DB37F6600229CAE /* shifter-Bridging-Header.h */,
 				04BCE1231DB470E7004A8162 /* DatePickerCell.swift */,
 				04BCE1251DB470EF004A8162 /* DatePickerCell.xib */,
@@ -326,6 +308,109 @@
 				04BCE1391DB49934004A8162 /* employeeCell.swift */,
 			);
 			path = shifter;
+			sourceTree = "<group>";
+		};
+		43D57FF81DBB2C260033A19E /* Bulletin */ = {
+			isa = PBXGroup;
+			children = (
+				431022191D5F791A00C47D22 /* Bulletin.swift */,
+				435AD2891D693D79000E38DA /* BulletinDetail.swift */,
+				43778AD61D6ECDDB00D74478 /* BulletinCompose.swift */,
+			);
+			name = Bulletin;
+			sourceTree = "<group>";
+		};
+		43D57FF91DBB2C480033A19E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				430738C61D59E108006F749A /* LoginViewContoller.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		43D57FFA1DBB2CAC0033A19E /* Date Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4326143D1DACCD4D0080AD10 /* DateTableViewCell.swift */,
+			);
+			name = "Date Cell";
+			sourceTree = "<group>";
+		};
+		43D57FFB1DBB2CB80033A19E /* Text Input Cell */ = {
+			isa = PBXGroup;
+			children = (
+				432687331D83DD2A003BD479 /* TextInputTableViewCell.swift */,
+			);
+			name = "Text Input Cell";
+			sourceTree = "<group>";
+		};
+		43D57FFC1DBB2CCA0033A19E /* Custom Cell */ = {
+			isa = PBXGroup;
+			children = (
+				43D57FFA1DBB2CAC0033A19E /* Date Cell */,
+				43D57FFB1DBB2CB80033A19E /* Text Input Cell */,
+			);
+			name = "Custom Cell";
+			sourceTree = "<group>";
+		};
+		43D57FFD1DBB2CE80033A19E /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				4310221D1D60D6EB00C47D22 /* Notification.swift */,
+				4385DD491D97B8C200FDD811 /* NotificationDetail.swift */,
+			);
+			name = Notification;
+			sourceTree = "<group>";
+		};
+		43D57FFE1DBB2D030033A19E /* Clock In */ = {
+			isa = PBXGroup;
+			children = (
+				4310221F1D60E07800C47D22 /* ClockIn.swift */,
+			);
+			name = "Clock In";
+			sourceTree = "<group>";
+		};
+		43D57FFF1DBB2D0D0033A19E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				431022211D60E8F400C47D22 /* Settings.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		43D580001DBB2D340033A19E /* Tab Bar */ = {
+			isa = PBXGroup;
+			children = (
+				43D2EDBB1DAF95AB00E5133E /* TabBarViewController.swift */,
+			);
+			name = "Tab Bar";
+			sourceTree = "<group>";
+		};
+		43D580011DBB2D3F0033A19E /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				04BCE13C1DB4BBE2004A8162 /* Shift Schedule */,
+				43D57FF91DBB2C480033A19E /* Login */,
+				43D580001DBB2D340033A19E /* Tab Bar */,
+				43D57FF81DBB2C260033A19E /* Bulletin */,
+				43D57FFC1DBB2CCA0033A19E /* Custom Cell */,
+				43D57FFD1DBB2CE80033A19E /* Notification */,
+				43D57FFE1DBB2D030033A19E /* Clock In */,
+				43D57FFF1DBB2D0D0033A19E /* Settings */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		43D580021DBB2D670033A19E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				43173E0B1D5328620043399F /* Main.storyboard */,
+				43173E0E1D5328620043399F /* Assets.xcassets */,
+				43173E101D5328620043399F /* LaunchScreen.storyboard */,
+				4326143E1DACCD4D0080AD10 /* DateTableViewCell.xib */,
+				432614371DABC64C0080AD10 /* TextInputTableViewCell.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		CB87C5AC26A8BCAFD41E06A6 /* Frameworks */ = {
@@ -476,7 +561,6 @@
 				04852D331DB37F9700229CAE /* MSWeekViewDecoratorInfinite.m in Sources */,
 				04BCE1201DB46AB4004A8162 /* EmployeeEventWeekViewController.swift in Sources */,
 				4385DD4A1D97B8C200FDD811 /* NotificationDetail.swift in Sources */,
-				431022181D5F76F200C47D22 /* ShiftSchedule.swift in Sources */,
 				432687341D83DD2A003BD479 /* TextInputTableViewCell.swift in Sources */,
 				04BCE12F1DB490A1004A8162 /* ConditionTableViewCell.swift in Sources */,
 				04852D341DB37F9700229CAE /* MSWeekViewDecoratorNewEvent.m in Sources */,
