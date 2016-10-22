@@ -1,1 +1,0 @@
-../../../Collection/Collection/Categories/NSString+Collection/NSString+Collection.h

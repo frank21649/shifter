@@ -32,15 +32,18 @@ PODS:
   - GoogleSymbolUtilities (1.1.1)
   - GoogleUtilities (1.3.1):
     - GoogleSymbolUtilities (~> 1.0)
+  - HSDatePickerViewController (1.0.4)
   - Masonry (1.0.2)
   - UIColor-HexString (1.3.0)
 
 DEPENDENCIES:
   - Collection
+  - DateTools
   - EasyDate
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
+  - HSDatePickerViewController (~> 1.0)
   - Masonry
   - UIColor-HexString
 
@@ -57,9 +60,10 @@ SPEC CHECKSUMS:
   GoogleNetworkingUtilities: 3e83269048cfb498dc7ec83ab36813360965c74f
   GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
+  HSDatePickerViewController: 5a72b71f8c3b10e76f2c28a898f8572b551432a6
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   UIColor-HexString: fadc2e1389db19147ac99dee92222d3bd8bfec4a
 
-PODFILE CHECKSUM: 31e5a2fc82524098e0ccfa861102b69572c193e7
+PODFILE CHECKSUM: b1d265df351c7df71f11792071c6a26f0a56a1d8
 
 COCOAPODS: 1.0.1
